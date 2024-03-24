@@ -4,23 +4,21 @@ LANG: PYTHON2
 TASK: ride
 """
 
+def enCode(name):
+    code = 1
+    for c in name:
+        code *= (ord(c)-64)
+    code = code % 47
+    return code
+
 with open("ride.in","r")as fIn, open("ride.out", "w")as fOut:
     lines = fIn.readlines()
 
     cometName = lines[0].strip()
     groupName = lines[1].strip()
 
-    cometCode = 1
-    for c in cometName:
-        cometCode = cometCode * (ord(c)-64)
-
-    cometCode = cometCode % 47
-
-    groupCode = 1
-    for c in groupName:
-        groupCode = groupCode * (ord(c)-64)
-
-    groupCode = groupCode % 47
+    cometCode = enCode(cometName)
+    groupCode = enCode(groupName)
 
     if groupCode == cometCode : 
         fOut.write("GO\n")

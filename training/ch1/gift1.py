@@ -1,6 +1,6 @@
 """
 ID: livyten1
-LANG: PYTHON2
+LANG: PYTHON3
 TASK: gift1
 """
 def getRemainingAfterGiving(money, peopleNum):
@@ -28,15 +28,16 @@ while curLine < len(lines):
             curLine += 1
             continue
       people[giver] -= money
-      people[giver] = getRemainingAfterGiving(money, peopleNum)
+      people[giver] += getRemainingAfterGiving(money, peopleNum)
       curLine += 1
       for i in range(peopleNum):
             receiver = lines[curLine]
             people[receiver] += getGivingForEachPeople(money, peopleNum)
             curLine += 1
 
-print(people)
-
-
+with open("gift1.out", "w") as fOut : 
+      for name, money in people.items():
+           # fOut.write(name + " " + str(money) + "\n")
+           fOut.write(f'{name} {money}\n')
 
       

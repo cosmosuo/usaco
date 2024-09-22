@@ -30,4 +30,4 @@ daysInWeek = daysInWeek[-1:] + daysInWeek[:-1]
 
 with open("friday.out", "w") as fOut:
     fOut.write(' '.join([str(d)for d in daysInWeek]))
-fOut.write("\n")
+    fOut.write("\n")
